@@ -32,4 +32,4 @@ function messageForKorina() {
     }
 }
 
-setInterval(messageForKorina, 10*1000);
+setInterval(messageForKorina, 2*60*60*1000);
