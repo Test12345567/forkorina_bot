@@ -7,8 +7,15 @@ const bot = new TelegramBot(token, {polling: true});
 let list = [];
 
 bot.on('message', function (msg) {
-
     const userId = msg.from.id;
+
+    if(list.find((obj) => {
+        if(obj.uid === userId)
+            return true;
+    })){
+        bot.sendMessage(userId, 'Ты уже в списке :)');
+        return;
+    }
 
     list.push({ 'uid': userId});
 
@@ -25,4 +32,4 @@ function messageForKorina() {
     }
 }
 
-setInterval(messageForKorina, 2*60*60*1000);
+setInterval(messageForKorina, 10*1000);
